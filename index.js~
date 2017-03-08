@@ -29,7 +29,7 @@ res.send('It works');
 var todos = require('./routes/todos');
 app.use('/todos', todos);
 
-var port='8080';
+var port='80';
 app.listen(port);
 console.log('Listening on port:'+port );
 module.exports = app;
