@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-mongoose.set('debug', true);
 var Todo = require('../models/Todo.js');
 
 router.post('/create', function(req, res) {
@@ -24,14 +23,14 @@ router.post('/create', function(req, res) {
 router.route('/get')
 	.get(function(req, res) {
 	console.log('api hit');
-	Todo.find({},function(err, todoarray) {
+	Todo.find({},function(err, todos) {
 		if (err) {
 			return res.json({msg : err});
 			console.log('api error');
 			}
 		// return the users
 		console.log('api succes');
-		res.json(todoarray);
+		res.json(todos);
 	});
 });
 

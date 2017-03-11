@@ -26,10 +26,10 @@ app.get('/',function(req,res){
 res.send('It works');
 });
 
-var todos = require('./routes/todos');
-app.use('/todos', todos);
+var user_routes = require('./routes/user_routes');
+app.use('/user', user_routes);
 
-var port='80';
+var port='8080';
 app.listen(port);
 console.log('Listening on port:'+port );
 module.exports = app;
