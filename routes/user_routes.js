@@ -7,7 +7,11 @@ var User = require('../models/user_model.js');
 router.post('/create', function(req, res) {
 	User.findOne({phoneNumber : req.body.phone_number},function(err, user){
 		if(user){
-			res.json({success: false, msg : 1});
+			if(user.playerId == req.body.player_id){ 
+				res.json({success: false, msg : 1});
+			}else{
+				res.json({success: false, msg : 2});
+			}
 		}else{
 			var temp = new User();
 			temp.name = req.body.name;
